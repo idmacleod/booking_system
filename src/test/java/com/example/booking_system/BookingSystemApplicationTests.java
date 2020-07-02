@@ -40,4 +40,10 @@ class BookingSystemApplicationTests {
 		assertEquals(2, foundCustomers.size());
 	}
 
+	@Test
+	public void canFindAllCoursesByCustomerName(){
+		List<Course> foundCourses = courseRepository.findByBookingsCustomerName("Rooree");
+		assertEquals("Mrs Jacob's Jujitsu", foundCourses.get(0).getName());
+	}
+
 }
