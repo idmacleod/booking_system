@@ -1,5 +1,6 @@
 package com.example.booking_system;
 
+import com.example.booking_system.models.Booking;
 import com.example.booking_system.models.Course;
 import com.example.booking_system.models.Customer;
 import com.example.booking_system.repositories.BookingRepository;
@@ -29,7 +30,7 @@ class BookingSystemApplicationTests {
 	void contextLoads() {}
 
 	@Test
-	public void canFindAllCoursesForGivenRating(){
+	public void canFindAllCoursesForGivenRating() {
 		List<Course> foundCourses = courseRepository.findByRating(5);
 		assertEquals("Mrs Jacob's Jujitsu", foundCourses.get(0).getName());
 	}
@@ -41,9 +42,15 @@ class BookingSystemApplicationTests {
 	}
 
 	@Test
-	public void canFindAllCoursesByCustomerName(){
+	public void canFindAllCoursesByCustomerName() {
 		List<Course> foundCourses = courseRepository.findByBookingsCustomerName("Rooree");
 		assertEquals("Mrs Jacob's Jujitsu", foundCourses.get(0).getName());
+	}
+
+	@Test
+	public void canFindAllBookingsByDate() {
+		List<Booking> foundBookings = bookingRepository.findByDate("08AUG20");
+		assertEquals(2, foundBookings.size());
 	}
 
 }
