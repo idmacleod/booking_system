@@ -27,8 +27,7 @@ public class Booking {
         this.customer = customer;
     }
 
-    public Booking() {
-    }
+    public Booking() {}
 
     public Long getId() {
         return id;
@@ -61,4 +60,5 @@ public class Booking {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
 }
