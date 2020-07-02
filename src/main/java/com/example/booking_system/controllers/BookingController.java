@@ -22,7 +22,7 @@ public class BookingController {
     public ResponseEntity<List<Booking>> getBookingsFilterDate(@RequestParam(required = false, name = "date") String date)
     {
         if (date != null) {
-            return new ResponseEntity<>(bookingRepository.findByDate(date), HttpStatus.OK);
+            return new ResponseEntity<>(bookingRepository.findByDateIgnoreCase(date), HttpStatus.OK);
         }
         return new ResponseEntity<>(bookingRepository.findAll(), HttpStatus.OK);
     }

@@ -25,7 +25,7 @@ public class CourseController {
             return new ResponseEntity<>(courseRepository.findByRating(rating), HttpStatus.OK);
         }
         if (customerName != null){
-            return new ResponseEntity<>(courseRepository.findByBookingsCustomerName(customerName), HttpStatus.OK);
+            return new ResponseEntity<>(courseRepository.findByBookingsCustomerNameIgnoreCase(customerName), HttpStatus.OK);
         }
         return new ResponseEntity<>(courseRepository.findAll(), HttpStatus.OK);
     }

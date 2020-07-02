@@ -37,31 +37,31 @@ class BookingSystemApplicationTests {
 
 	@Test
 	public void canFindCustomersByCourseName() {
-		List<Customer> foundCustomers = customerRepository.findByBookingsCourseName("Akido With Agnes");
-		assertEquals(2, foundCustomers.size());
+		List<Customer> foundCustomers = customerRepository.findByBookingsCourseNameIgnoreCase("Akido With Agnes");
+		assertEquals(3, foundCustomers.size());
 	}
 
 	@Test
 	public void canFindAllCoursesByCustomerName() {
-		List<Course> foundCourses = courseRepository.findByBookingsCustomerName("Rooree");
+		List<Course> foundCourses = courseRepository.findByBookingsCustomerNameIgnoreCase("Rooree");
 		assertEquals("Mrs Jacob's Jujitsu", foundCourses.get(0).getName());
 	}
 
 	@Test
 	public void canFindAllBookingsByDate() {
-		List<Booking> foundBookings = bookingRepository.findByDate("08AUG20");
-		assertEquals(2, foundBookings.size());
+		List<Booking> foundBookings = bookingRepository.findByDateIgnoreCase("08AUG20");
+		assertEquals(3, foundBookings.size());
 	}
 
 	@Test
 	public void canFindCustomersByTownAndCourse() {
-		List<Customer> foundCustomers = customerRepository.findByTownAndBookingsCourseName("Nice", "Akido With Agnes");
+		List<Customer> foundCustomers = customerRepository.findByTownIgnoreCaseAndBookingsCourseNameIgnoreCase("Nice", "Akido With Agnes");
 		assertEquals("Jean-Luc", foundCustomers.get(0).getName());
 	}
 
 	@Test
 	public void canFindCustomersOlderThan100ByTownAndCourse() {
-		List<Customer> foundCustomers = customerRepository.findByAgeGreaterThanAndTownAndBookingsCourseName(100, "Tokyo", "Akido With Agnes");
+		List<Customer> foundCustomers = customerRepository.findByAgeGreaterThanAndTownIgnoreCaseAndBookingsCourseNameIgnoreCase(100, "Tokyo", "Akido With Agnes");
 		assertEquals("Methuselah", foundCustomers.get(0).getName());
 	}
 
