@@ -27,10 +27,10 @@ public class CustomerController {
     )
     {
         if (olderThan != null && town != null && courseName != null) {
-            return new ResponseEntity<>(customerRepository.findByAgeGreaterThanAndTownIgnoreCaseAndBookingsCourseNameIgnoreCase(olderThan, town, courseName), HttpStatus.OK);
+            return new ResponseEntity<>(customerRepository.findByAgeGreaterThanAndTownAndBookingsCourseNameAllIgnoreCase(olderThan, town, courseName), HttpStatus.OK);
         }
         if (town != null && courseName != null) {
-            return new ResponseEntity<>(customerRepository.findByTownIgnoreCaseAndBookingsCourseNameIgnoreCase(town, courseName), HttpStatus.OK);
+            return new ResponseEntity<>(customerRepository.findByTownAndBookingsCourseNameAllIgnoreCase(town, courseName), HttpStatus.OK);
         }
         if (courseName != null) {
             return new ResponseEntity<>(customerRepository.findByBookingsCourseNameIgnoreCase(courseName), HttpStatus.OK);

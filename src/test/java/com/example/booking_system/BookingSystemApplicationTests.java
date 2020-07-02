@@ -55,13 +55,13 @@ class BookingSystemApplicationTests {
 
 	@Test
 	public void canFindCustomersByTownAndCourse() {
-		List<Customer> foundCustomers = customerRepository.findByTownIgnoreCaseAndBookingsCourseNameIgnoreCase("Nice", "Akido With Agnes");
+		List<Customer> foundCustomers = customerRepository.findByTownAndBookingsCourseNameAllIgnoreCase("Nice", "Akido With Agnes");
 		assertEquals("Jean-Luc", foundCustomers.get(0).getName());
 	}
 
 	@Test
 	public void canFindCustomersOlderThan100ByTownAndCourse() {
-		List<Customer> foundCustomers = customerRepository.findByAgeGreaterThanAndTownIgnoreCaseAndBookingsCourseNameIgnoreCase(100, "Tokyo", "Akido With Agnes");
+		List<Customer> foundCustomers = customerRepository.findByAgeGreaterThanAndTownAndBookingsCourseNameAllIgnoreCase(100, "Tokyo", "Akido With Agnes");
 		assertEquals("Methuselah", foundCustomers.get(0).getName());
 	}
 
